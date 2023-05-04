@@ -2,6 +2,7 @@
 # Arduino MIDI Drum Sequencer
 
 A versatile and customizable MIDI drum sequencer for Arduino, designed to control drum machines, virtual instruments, or hardware synths via MIDI.
+![image](https://user-images.githubusercontent.com/98264095/236213322-418d5a74-1b8f-427f-88ee-cc4905032238.png)
 
 ## Table of Contents
 
