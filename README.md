@@ -49,6 +49,33 @@ S[Update LCD] --> T[Display Channel, BPM, and Rhythm Pattern]
 U[Debounce Button Inputs] --> V[Prevent False Triggering]
 ```
 
+### Libraries and Initialization
+
+- The LiquidCrystal_I2C and MIDI libraries are included.
+- An LCD object is created with address 0x27 and 16 columns and 2 rows.
+- MIDI_CREATE_DEFAULT_INSTANCE() creates a default instance of the MIDI class.
+
+### Drum Instruments and Rhythm Patterns
+
+- Drum instruments and their corresponding MIDI notes are defined using constants and arrays.
+- Rhythm patterns for the sequencer are defined using multi-dimensional arrays.
+
+### Variables and Functions
+
+- Variables related to beats, notes, channels, buttons, and LEDs are defined.
+- The setup() function initializes the Arduino environment, including MIDI, pins for buttons and LEDs, https://www.arduino.cc/en/software).
+and the LCD.
+- The loop() https://github.com/FortySevenEffects/arduino_midi_library) and function https://github.com/johnrickman/LiquidCrystal_I2C) using the
+https://github.com
+https://www.arduino.cc/en/software).
+is the main loop of the program. It reads the current state of the buttons and sets the channel, BPM, and rhythm pattern accordingly. It then checks if the state has changed and updates the LCD.
+- The beat() function is called every time a new beat occurs. It sends MIDI messages for all instruments in the current rhythm pattern, and increments the beat and note counters.
+- The BPM_UPDATE() function reads the analog input from the potentiometer and maps the value to the BPM range. It also updates the LCD with the new BPM value.
+- The ISR(PCINT2_vect) function is an interrupt service routine for the buttons. It handles button presses and sets the next channel to be used.
+- The lcd_update() function updates the LCD with the current channel, BPM, and rhythm pattern information.
+- The debounce() function is used to debounce button inputs, preventing false triggering due to mechanical noise.
+
+
 ## Prerequisites
 
 ### Hardware
