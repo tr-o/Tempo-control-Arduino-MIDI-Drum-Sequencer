@@ -30,6 +30,25 @@ This project aims to provide a simple and customizable MIDI drum sequencer using
 
 The Arduino-based MIDI drum sequencer sends MIDI messages to a host PC running a digital audio workstation (DAW) such as Waveform Free. The sequencer uses an I2C liquid crystal display (LCD) and buttons for control. The LiquidCrystal_I2C and MIDI libraries are included, and an LCD object is created with address 0x27 and 16 columns and 2 rows. Drum instruments and their corresponding MIDI notes are defined using constants and arrays, while rhythm patterns for the sequencer are defined using multi-dimensional arrays.
 
+```mermaid
+graph TD
+A[Power On] --> B[Initialize Arduino Environment]
+B --> C[Initialize MIDI]
+B --> D[Initialize Pins for Buttons and LEDs]
+B --> E[Initialize LCD]
+F[Main Loop] --> G[Read Button States]
+G --> H[Set Channel, BPM, and Rhythm Pattern]
+H --> I[Check for State Changes]
+I --> J[Update LCD]
+K[New Beat] --> L[Send MIDI Messages]
+L --> M[Increment Beat and Note Counters]
+N[Analog Input for BPM] --> O[BPM Update]
+O --> P[Update LCD with New BPM Value]
+Q[Button Press Interrupt] --> R[Set Next Channel]
+S[Update LCD] --> T[Display Channel, BPM, and Rhythm Pattern]
+U[Debounce Button Inputs] --> V[Prevent False Triggering]
+```
+
 ## Prerequisites
 
 ### Hardware
