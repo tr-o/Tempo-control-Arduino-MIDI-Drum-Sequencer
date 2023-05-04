@@ -87,6 +87,9 @@ Here are some reasons why using an ISR can be advantageous in this context:
 
 3. **Minimize Latency**: In a time-sensitive application like a MIDI drum sequencer, minimizing latency is crucial for accurate and consistent performance. Using an ISR to handle button inputs can help minimize latency by quickly responding to button presses and updating the related variables.
 
+### Debouncing Buttons
+
+This code takes measures against button chattering (also known as debounce). The `debounce()` function is used to prevent false triggering of button presses due to mechanical noise or contact bouncing. When a button press is detected, the debounce function waits for a short period (in this case, 50 milliseconds) before reading the button state again. If the button state is still the same after the delay, the code considers it a valid button press. This helps filter out any false triggers caused by the mechanical noise or bouncing of the button contacts.
 
 ## Prerequisites
 
