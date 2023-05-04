@@ -75,6 +75,18 @@ is the main loop of the program. It reads the current state of the buttons and s
 - The lcd_update() function updates the LCD with the current channel, BPM, and rhythm pattern information.
 - The debounce() function is used to debounce button inputs, preventing false triggering due to mechanical noise.
 
+## Button Handling with Interrupt Service Routine (ISR)
+
+In the code, an Interrupt Service Routine (ISR) is used to handle button presses. The reason for using an ISR is to achieve a more responsive and efficient behavior when processing button inputs.
+
+Here are some reasons why using an ISR can be advantageous in this context:
+
+1. **Responsiveness**: ISRs allow the program to respond to button presses immediately, rather than waiting for the main loop to finish its current iteration. This can result in a more responsive user interface, as the program can react to button presses in real-time.
+
+2. **Efficiency**: By using an ISR, the program does not have to continuously poll the button states in the main loop. Instead, it only responds when there is an actual button press event. This can save processing resources, as the microcontroller is not occupied with constant button polling.
+
+3. **Minimize Latency**: In a time-sensitive application like a MIDI drum sequencer, minimizing latency is crucial for accurate and consistent performance. Using an ISR to handle button inputs can help minimize latency by quickly responding to button presses and updating the related variables.
+
 
 ## Prerequisites
 
